@@ -1,6 +1,6 @@
 import requests
 import urllib
-
+import re
 
 
 url = "https://books.toscrape.com/"
@@ -23,6 +23,12 @@ def main():
 def extracting_links(response):
 
     print("[Links]")
+
+    links = re.findall(r'href="([^"]+)"', response)
+    
+    for link in links:
+    
+        print(link)
 
     if response == "":
 
